@@ -1,0 +1,44 @@
+@import "index/index";
+@import "one-case/one-case";
+@import "header/header";
+@import "button";
+@import "map";
+@import "about-us/about-us";
+
+@media (max-width: 1200px) {
+    @import "index/index-max-1200";
+}
+
+@media (max-width: 991px) {
+    @import "index/index-max-992";
+}
+
+@media (max-width: 767px) {
+    @import "index/index-max-767";
+}
+
+
+@media (max-width: 1200px) {
+    @import "about-us/_about-us-max-1200";
+}
+
+@media (max-width: 991px) {
+    @import "about-us/_about-us-max-992";
+}
+
+@media (max-width: 767px) {
+    @import "about-us/_about-us-max-767";
+}
+
+
+@media (max-width: 1200px) {
+    @import "one-case/one-case-max-1200";
+}
+
+@media (max-width: 991px) {
+    @import "one-case/one-case-max-992";
+}
+
+@media (max-width: 767px) {
+    @import "one-case/one-case-max-767";
+}

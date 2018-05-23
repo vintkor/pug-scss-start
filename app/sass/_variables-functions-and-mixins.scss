@@ -1,0 +1,36 @@
+$main-color: #071a13;
+$red-color: #d4495a;
+$theme-color: #02a383;
+$dark-theme-color: #33b185;
+$headfoot-color: #323232;
+
+$white-color: #fff;
+$black-color: #000;
+
+$main-font: 'Akrobat';
+$myr-font: 'Myriad Pro';
+
+$i: 10;
+@while $i < 101 {
+    .mb-#{$i} { margin-bottom: $i + px; }
+    $i: $i + 10;
+}
+
+$i: 10;
+@while $i < 101 {
+    .mt-#{$i} { margin-top: $i + px; }
+    $i: $i + 10;
+}
+
+@mixin center($height) {
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    height: $height;
+}
+
+@mixin container-small() {
+    max-width: 1230px;
+    margin: 0 auto;
+    padding: 0 30px;
+}

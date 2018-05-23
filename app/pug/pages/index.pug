@@ -1,0 +1,30 @@
+extends ../default.pug
+block pageContent
+  include ../templates/header.pug
+  main.main
+    include ../templates/banner.pug
+
+    - var items = [
+      {
+        title: 'some title 1',
+        text: 'some text 1'
+      },
+      {
+        title: 'some title 2',
+        text: 'some text 2'
+      },
+      {
+        title: 'some title 3',
+        text: 'some text 3'
+      }
+    ]
+
+    section.section.section_line.services
+      .section__container
+        .section__column.services__column
+          h2.section__title-primary.text-title Our services
+          p.text-semi.services__subtitle hi		um. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis
+            | bibendum auctor, nisi elit consequat ipsum, nec sagitt. sem nibh id elit. Duis sed odio
+          ul
+            each item in items
+              li =item.title

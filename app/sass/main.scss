@@ -1,0 +1,328 @@
+@import "variables-functions-and-mixins";
+
+@import 'smartgrid';
+@include reset();
+::selection { background: rgba($theme-color, .5); }
+* { font-family: $main-font; color: $main-color; font-size: calc(12px + 0.4vw); }
+.container-fluid {max-width: 1480px; }
+.align-right { text-align: right; }
+.align-left { text-align: left; }
+.align-center { text-align: center; }
+body {background-color: #fff; }
+
+.nav {
+  &__item {
+    &_inline {
+      display: inline-block;
+    }
+  }
+  &__link {
+    text-decoration: none;
+    &_primary {
+      color: $white-color;
+    }
+    &_neutral {
+      color: #071a13;
+    }
+  }
+  &__list {
+    &_footer {
+      margin-top: 25px;
+    }
+  }
+
+}
+
+//CONTAINER
+.swiper-container {
+  width: 100%;
+  height: 100%;
+}
+.swiper-slide {
+  background-size: cover;
+  background-position: center center;
+  height: 100vh;
+  /* Center slide text vertically */
+}
+
+.section {
+  //--- styles for section color ---
+  &_dark {
+    background-color: #d9d9d9;
+  }
+  &_dark-lighten {
+    background-color: #fafafa;
+  }
+  //--- Bottom line --- //
+  &_line {
+    box-shadow: 6px 6px 27px 0 rgba(0,0,0, .22);
+  }
+  //--- End bottom line --- //
+  //--- end style for section color ---
+
+  //--- Grid sections styles ---
+  &__container {
+    @include wrapper();
+  }
+  &__row {
+    @include row-flex();
+    &_center {
+      justify-content: center;
+      align-items: center;
+    }
+  }
+  &__column {
+    @include row-flex();
+    flex-direction: column;
+  }
+  &__wrapper {
+    @include col();
+    @include size(12);
+  }
+  &__small {
+    @include col();
+    @include size(10);
+    margin: 0 auto;
+  }
+  // --- End grid section styles ---
+
+  /* --- Texts styles in section */
+  &__title-primary {
+    font-family: 'Open Sans';
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  &__text {
+    &_subtitle {
+      font-family: 'Comfortaa';
+    }
+    &_theme {
+      color: $theme-color;
+    }
+    &_dark-theme {
+      color: $dark-theme-color;
+    }
+    // -- Title fonts
+    &_sub {
+      &-1 {
+        font-size: calc(22px + 1vw);
+        font-weight: 600;
+      }
+      &-2 {
+        font-size: calc(16px + 0.6vw);
+      }
+    }
+    // -- End title font-size
+    &_cases {
+      color: $dark-theme-color;
+      margin-bottom: 50px;
+    }
+  }
+  /* --- End Texts */
+  &__list {
+    &_activity {
+      @include size(8);
+    }
+    &_services {
+      @include size(12);
+    }
+  }
+}
+
+/* --- MAIN TEXT ---  */
+.text {
+  &-theme {
+    color: $theme-color;
+  }
+  &-title {
+    font-size: calc(20px + 2.0vw);
+  }
+  // ~= 24px
+  &-semi {
+    font-size: calc(14px + 0.5vw)
+  }
+  &-subfont {
+    font-family: 'Open Sans';
+  }
+}
+
+/* --- END MAIN TEXT --- */
+
+.footer {
+  &__main {
+    padding-bottom: 50px;
+    padding-top: 40px;
+  }
+  &__logo {
+    @include size(2);
+    @include size-sm(12);
+    @include col();
+  }
+  &__menu {
+    @include size(2);
+    @include size-sm(6);
+    @include col();
+    padding-left: 10px;
+  }
+  &__social {
+    @include size(5);
+    @include size-sm(12);
+    @include col();
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    &-block {
+      padding-top: 20px;
+      display: flex;
+    }
+    &-single {
+      width: 48px;
+      height: 48px;
+      background-color: #e1e3e3;
+      border-radius: 50%;
+      margin: 0 5px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      &:hover > .footer__social-item {
+        transform: rotate(720deg);
+        & path {
+          color: $theme-color;
+        }
+      }
+    }
+    &-item {
+      font-size: 24px;
+      transition: all .3s;
+    }
+    &-item path {
+      color: $white-color;
+
+    }
+  }
+  &__title {
+    position: relative;
+    &::before {
+      position: absolute;
+      content: '';
+      left:0;
+      bottom: -5px;
+      width: 25px;
+      height: 2px;
+      background: $dark-theme-color;
+    }
+  }
+  &__text {
+    font-weight: 300;
+    font-size: 16px;
+    display:block;
+    padding: 5px 0;
+    color: $main-color;
+    &_hover {
+      &:hover {
+        text-decoration: none;
+        color: $dark-theme-color;
+      }
+    }
+  }
+  // BOTTOM FOOTER STYLE
+  &__additional {
+    background: #323232;
+    padding: 20px 0;
+    &-section {
+      @include size(6);
+      @include col();
+      text-align: center;
+    }
+  }
+  &__copyright {
+    font-size : 12px;
+    color: rgba(#fff, .8);
+    display: inline-block;
+    font-weight: 300;
+    &_policy {
+      border-bottom: 1px solid rgba(#fff, .8);
+    }
+  }
+}
+
+.list-section {
+  &_services {
+    display: flex;
+    @include col();
+    @include size(12);
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  &_activity {
+    @include size(3);
+    margin-top: 58px;
+    @include col();
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  &__item {
+    &_services {
+      @include size(2);
+      @include col();
+      padding-top: 70px;
+      flex-basis: 220px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  &__title {
+    font-weight: 600;
+    padding-top: 40px;
+    font-size: calc(12px + 0.2vw);
+    margin-top: auto;
+    text-align: center;
+  }
+  &__subtitle {
+    text-align: center;
+  }
+  &__wrap {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.form {
+  &_send {
+    padding-top: 50px;
+  }
+  &__field {
+    font-weight: 300;
+    padding-left: 25px;
+    padding-right: 10px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-top: 30px;
+    &:first-child {
+      margin-top: 0;
+    }
+    &_question {
+      background: transparent;
+      color: #fff;
+      border: 1px solid rgba(#fff, .5);
+      font-weight: 300;
+      &::placeholder {
+        color: #fff;
+        font-weight: 300;
+        opacity: .8;
+      }
+    }
+    &_single {
+      display: block;
+      width: 100%;
+    }
+  }
+}
+
+@import 'media';
+@import "fonts";
